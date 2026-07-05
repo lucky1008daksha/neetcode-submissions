@@ -1,0 +1,15 @@
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        HashMap<String, List<String>> map = new HashMap<>();
+        for(String s : strs){
+            char [] c = s.toCharArray();
+            Arrays.sort(c);
+            String s1 = new String(c);
+            if(!map.containsKey(s1)){
+                map.put(s1, new ArrayList<>());
+            }
+            map.get(s1).add(s); //it retrieves the list attached with that key and adds the original string to the list so that the anagrams are grouped together ..
+        }
+        return new ArrayList<>(map.values());
+    }
+}
